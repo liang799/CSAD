@@ -1,0 +1,155 @@
+.box {
+    padding:5px;
+    border: solid;
+    border-color: #bbb;
+    margin-right: 40px;
+    margin-left: 40px;
+
+}
+.box2 {
+    position: relative;
+    top: 1px;
+    margin-top: 20px;
+}
+
+.question{
+    height: 30px;
+    width: 30px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    color:black
+}
+.question-alt{
+    background-color: #bbb;
+    border-radius: 100px;
+    display: inline-block;
+    color:black
+}
+
+
+#lab2-q1 {
+    color: blue;
+    background-color: rgb(128,255,128);
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#lab2-q2-bod {
+    background-image: url("../img/Lab2/bg.jpg");
+    background-repeat: repeat-y;
+    height:200px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#lab2-q2-bod>h1 {
+    background-image: url("../img/Lab2/bg1.jpg");
+}
+#lab2-q2-h2 {
+    background-image: url("../img/Lab2/bg2.jpg");
+}
+
+#dicd {
+    letter-spacing: 3cm;
+    text-align: center;
+}
+#icd {
+    letter-spacing: -3px;
+    text-align: right;
+}
+
+.style1 {
+    font-style: italic;
+}
+
+.style2 {
+    font-weight: 900;
+    font-size: 30px;
+    font-family: Courier New;
+}
+
+#header {
+    color: red;
+    font-style: italic;
+    font-weight: bold;
+    text-decoration: underline;     
+}
+
+.blue {
+    color: blue;
+    text-decoration: line-through;
+}
+
+.c1 {
+    border-color: red;
+    border-style: dotted;
+    padding: 0px;
+}
+
+.c2 {
+    border-left:blue double 3px; 
+    border-right:blue double 2px;
+}
+
+.table{
+    border: 2px;
+    border-style: solid;
+    border-color: green;
+    
+}
+
+.data {
+    border: 1px;
+    border-style: solid;
+    border-color: orange; 
+    padding: 10px;
+}
+
+.pointer1 {
+    list-style-image:url(../img/Lab2/b1.gif);
+}
+
+.pointer2 {
+    list-style-image:url(../img/Lab2/b2.gif);
+}
+
+.div1 {
+    position: relative;
+    left: 10;
+    top: 10;
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    overflow: hidden;
+    cursor: move;   
+}
+.div2{
+/*    can't do absoulte    */
+    position: relative;
+    left:50;
+    top:20;
+    width:100px;
+    height:50px;
+    background-color:gray;
+    overflow:scroll;
+    cursor:pointer;
+}
+
+.q9link a:link {
+    color: red;
+    font-size: 200%;
+}
+.q9link a:visited {
+    color: pink;
+    text-decoration: line-through;
+}
+.q9link a:hover {
+    background-color: orange;
+}
+.q9link a:active {
+    font-size: 50%;
+}
+
+#lab3-q2 {
+    height: 400px;
+}
