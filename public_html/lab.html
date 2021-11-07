@@ -10,6 +10,8 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/lab.css" type="text/css" />
+        <script src="js/lab3a.js"></script>
+
     </head>
     <body>
         <!---------------------------------------- Lab 1 ---------------------------------------------------------->
@@ -393,10 +395,10 @@ and open the template in the editor.
             <img src="img/Lab2/apple.gif" style="z-index:-1; position:relative;">
          </div>
         
-        <h1 style="text-align:center; color:red">Lab 3</h1>
+        <h1 style="text-align:center; color:red">Lab 3a</h1>
         <hr style="width:20%; color:red">
         
-        <!-------------------------------------------- Lab 3 ------------------------------------------------------->
+        <!-------------------------------------------- Lab 3a ------------------------------------------------------->
         
         <div class="box" id="lab2-q1">
             <h2 class="question-alt">Q1</h2>
@@ -436,7 +438,77 @@ and open the template in the editor.
                 }
             </script>
         </div>
-
+        
+        <div class="box box2">
+            <h2 class="question-alt">Q4</h2>
+            <table>
+                <tr>
+                    <th><u>Range</u></th>
+                    <th><u>Grade</u></th>
+                </tr>
+                <tr>
+                    <td>0 to 49</td>
+                    <td>F</td>
+                </tr>
+                <tr>
+                    <td>50 to 59</td>
+                    <td>D</td>
+                </tr>
+                <tr>
+                    <td>60 to 69</td>
+                    <td>C</td>
+                </tr>
+                <tr>
+                    <td>70 to 79</td>
+                    <td>B</td>
+                </tr>
+                <tr>
+                    <td>80 to 100</td>
+                    <td>A</td>
+                </tr>
+            </table>
+             <br>
+            <script>
+                let marks = [80, 77, 88, 95, 68];
+                avgMark(marks);
+            </script>
+        </div>
+        
+        <div class="box box2">
+            <h2 class="question-alt">Q5</h2>
+            <p>
+                Create a new html file and name it “Q5.html”. <br>   
+                Write <b>two</b> JavaScript <b>functions</b> which each will take an input parameter of an array of <br>
+                numbers stored and find the smallest and largest number respectively. By calling the two <br>
+                functions, compute and display the smallest and largest number of the array [80, 77, 88, 95, <br>
+                68]. 
+            </p>
+            <script>
+                let numbers = [80, 77, 88, 95, 68];
+                findSmall(numbers);
+                findBig(numbers);     
+            </script>
+        </div>
+        
+        <div class="box box2">
+            <h2 class="question-alt">Q6</h2>
+             <br>
+            <script>
+                for(var i = 0; i != 16; i+=2){ 
+                    document.write(i ," * ", i ," = ", i*i, "<br>");
+                }
+            </script>
+        </div>
+        
+        <div class="box box2">
+            <h2 class="question-alt">Q7</h2>
+             <br>
+            <script>
+                for(var i = 0; i != 16; i+=2){ 
+                    document.write(i ," * ", i ," = ", i*i, "<br>");
+                }
+            </script>
+        </div>
 
 
         
