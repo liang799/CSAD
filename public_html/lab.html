@@ -10,12 +10,28 @@ and open the template in the editor.
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="css/lab.css" type="text/css" />
-        <script src="js/lab3a.js"></script>
+        <script src="js/lab.js"></script>
 
     </head>
     <body>
+        <h1 class="title">Lab Solutions</h1>
+        <div class="navbar">
+            <a href="home.html">Home</a>
+            <a href="https://esp.sp.edu.sg/webapps/blackboard/content/listContent.jsp?course_id=_52437_1&content_id=_1475638_1&mode=reset">CSAD Module</a>
+            <div class="dropdown">
+                <button class="dropbtn" onclick="myFunction()">Labs &darr;
+                  <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content" id="myDropdown">
+                  <a href="#lab1">Lab 1</a>
+                  <a href="#lab2">Lab 2</a>
+                  <a href="#lab3">Lab 3</a>
+                </div>
+            </div> 
+      </div>
+        
         <!---------------------------------------- Lab 1 ---------------------------------------------------------->
-        <h1 style="text-align:center; color:red">Lab 1</h1>
+        <h1 style="text-align:center; color:red" id="#lab1">Lab 1</h1>
         <hr style="width:20%; color:red">
         <h2 class="question">Q1</h2>
         <div class="box">Welcome to our Website</div>
@@ -283,7 +299,7 @@ and open the template in the editor.
             </p>
         </div>
                 
-        <h1 style="text-align:center; color:red">Lab 2</h1>
+        <h1 style="text-align:center; color:red" id="lab2">Lab 2</h1>
         <hr style="width:20%; color:red">
         
         <!-------------------------------------------- Lab 2 ------------------------------------------------------->
@@ -384,7 +400,7 @@ and open the template in the editor.
         
         <div class="box box2">
             <h2 class="question">Q9</h2>
-            <p class="q9link">Click <a href="index.html">here</a> to visit my webpage</a></p>
+            <p class="q9link">Click <a href="home.html">here</a> to visit my webpage</a></p>
         </div>
         
          <div class="box box2">
@@ -395,13 +411,13 @@ and open the template in the editor.
             <img src="img/Lab2/apple.gif" style="z-index:-1; position:relative;">
          </div>
         
-        <h1 style="text-align:center; color:red">Lab 3a</h1>
+        <h1 style="text-align:center; color:red" id="lab3">Lab 3</h1>
         <hr style="width:20%; color:red">
         
-        <!-------------------------------------------- Lab 3a ------------------------------------------------------->
+        <!-------------------------------------------- Lab 3 ------------------------------------------------------->
         
         <div class="box" id="lab2-q1">
-            <h2 class="question-alt">Q1</h2>
+            <h2 class="question-alt" >Q1</h2>
             <br>
             <svg height="210" width="300">
                 <polygon points="10,10 15,190 160,210" style="fill:white;stroke:purple;stroke-width:1" />
@@ -494,20 +510,89 @@ and open the template in the editor.
             <h2 class="question-alt">Q6</h2>
              <br>
             <script>
-                for(var i = 0; i != 16; i+=2){ 
-                    document.write(i ," * ", i ," = ", i*i, "<br>");
-                }
+                findWord("AA", "AA BB CC AA DD");
             </script>
         </div>
         
         <div class="box box2">
             <h2 class="question-alt">Q7</h2>
-             <br>
-            <script>
-                for(var i = 0; i != 16; i+=2){ 
-                    document.write(i ," * ", i ," = ", i*i, "<br>");
-                }
-            </script>
+            <h2>An Extremely simple Calculator</h2>
+             <form>
+                Input 1st number : <input type="text" id="firstNumber" /> <br>
+                Input 2nd number : <input type="text" id="secondNumber" /> <br>
+                <input type="button" onclick="add()" value="Addition"/>
+                <input type="button" onclick="subtract()" value="Subtraction"/>
+                <input type="button" onclick="multiply()" value="Multiply"/>
+                <input type="button" onclick="divide()" value="Divide"/>
+             </form>
+             <p>
+                 Result : <span id="result">____</span>
+             </p>
+        </div>
+        
+        <div class="box box2">
+            <h2 class="question-alt">Q8</h2>
+            <form>
+                Quantity <br>
+                <input type="number" min="1" value="1" id="quantity" /> <br>
+                Price Per Unit ($) <br> 
+                <input type="number" step="any" value="1.00" id="ppu" /> <br>
+                Tax rate (%) <br> 
+                <input type="number" step="any" value ="7.0" id="tax" /> <br>
+                Discount (%) <br>
+                <input type="number" step="any" id="discount" value="0.00"/> <br>
+                Total ($) <br>
+                <input type="number" step="any" id="total" /> <br>
+                <input type="button" onclick="calPricing()" value="Calculate"/>
+            </form>
+        </div>
+        
+        <div class="box box2">
+            <h2 class="question-alt">Q9 </h2>
+            <form name="SurveryFrom" onsubmit="return validateInputs()">
+                <p>Name: <input type="text" size="35" name="Name"></p>
+                <p>Email: <input type="text" size="35" name="Email"></p>
+                <p>Age: <input type="text" name="Age"></p>
+                <p>
+                    Course
+                    <select name="Course">
+                        <option value="0">SELECT COURSE</option>
+                        <option value="1">DEEE</option>
+                        <option value="2">DCPE</option>
+                        <option value="3">DASE</option>
+                        <option value="4">DEB</option>
+                    </select>
+                </p>
+                <p>
+                    <input type="submit" value="Send" name="Submit">
+                    <input type="reset" value="Reset" name="Reset">                    
+                </p>
+            </form>
+        </div>
+        
+        <div class="box box2">
+            <h2 class="question-alt">Q10</h2>
+            <table id="table">
+                <tr>
+                    <td>User ID:</td>
+                    <td><input type="text" id="uid" onkeyup="validateUserID();"/></td>
+                    <td><div id="errUid"></div></td>
+                </tr>
+                <tr>
+                    <td>Password:</td>
+                    <td><input type="password" id="password"
+                               onkeyup="validatePassword();"/></td>
+                    <td><div id="errPassword"></div></td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                <tr>
+                    <td><input type="button" id="login" value="login"
+                               onclick="validate(); finalValidate();"/></td>
+                    <td><div id="errFinal"></div></td>
+                </tr>
+            </table>
         </div>
 
 
