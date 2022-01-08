@@ -1,5 +1,5 @@
 # CSAD
-Static webpages
+Static webpages. Click [here](index.html) to go to index.
 
 ## Context
 CSAD Practicals done in 2021
