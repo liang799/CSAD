@@ -1,11 +1,5 @@
-# CSAD
-Static webpages. Click [here](https://liang799.github.io/CSAD/index.html) to go to index.
+# CSAD-dynamic
+CSAD Labs done in 2022. Click <a href="https://csad.42web.io/">here</a> to check it out!
 
-## Context
-CSAD Practicals done in 2021
-
-### Note
-I did not include lab 4 onwards as they require php, which Github pages does not support
-
-## Credits
-- [RedTie](http://www.oswd.org/design/information/id/3699/)
+## Note
+I mainly focus on the backend (i.e. learning PHP, SQL, Javascript) and not on the UI/UX. If you want to see my design portfolio, checkout my personal webpage.

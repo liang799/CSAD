@@ -14,7 +14,6 @@ window.onclick = function(e) {
   }
 }
 
-
 function avgMark(marks){
     var total = 0;
     for (var i = 0; i < marks.length; ++i)

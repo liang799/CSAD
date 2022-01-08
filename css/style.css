@@ -7,7 +7,7 @@ body {
 	margin-right: 0px;
 	margin-bottom: 0px;
 }
-#logo{float:left; background-image:url(../img/bg.gif); width:264px; height:213px;}
+#logo{float:left; margin-top: 30px;}
 #topheader{float:right; width:526px; height:97px; background-color:#F0F0F0; position:relative}
 #toplinks{position:absolute; right:10px; top:10px;}
 #menu{float:right; width:526px; height:32px; background-image:url(bg_menu.gif); background-repeat:repeat-x;}
@@ -18,7 +18,7 @@ body {
 
 /*GRAY PANEL*/
 .graypanel{
-	border:solid 1px #666666; background-color:#F7F7F7; padding:10px; margin:10px;
+	border:solid 1px #666666; background-color:#F7F7F7; padding:10px; margin:30px;
 }
 
 /*TEXT STYLES*/
