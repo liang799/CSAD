@@ -1,4 +1,5 @@
 # CSAD
+Static webpages
 
 ## Context
 CSAD Practicals done in 2021
