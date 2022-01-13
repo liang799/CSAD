@@ -33,6 +33,7 @@ and open the template in the editor.
                   <a href="#lab4">Lab 4</a>
                   <a href="#lab5">Lab 5</a>
                   <a href="#lab6">Lab 6</a>
+                  <a href="#lab7">Lab 7</a>
                 </div>
             </div> 
       </div>
@@ -965,13 +966,185 @@ and open the template in the editor.
             </form>
         </div>
 
+        <h1 style="text-align:center; color:red" id="lab7">Lab 7</h1>
+        <hr style="width:20%; color:red">
 
+        <!-------------------------------------------- Lab 7 ------------------------------------------------------->
 
+        <div class="box box2">
+            <h2 class="question-alt">Q1</h2>
+	    <pre>
+		CREATE DATABASE mydatabase;
+	    </pre>
+        </div>
 
+        <div class="box box2">
+            <h2 class="question-alt">Q2</h2>
+	    <pre>
+		USE mydatabase;
 
+		CREATE TABLE Employee (
+		emp_id MEDIUMINT UNSIGNED NOT NULL AUTO_INCREMENT,
+		emp_name VARCHAR(50) NOT NULL,
+		emp_dept VARCHAR(50) ,
+		emp_address VARCHAR(50) NOT NULL,
+		PRIMARY KEY (emp_id)
+		);
+	    </pre>
+        </div>
 
+        <div class="box box2">
+            <h2 class="question-alt">Q3</h2>
+	    <pre>
+		SELECT * FROM mydatabase.employee;
+	    </pre>
+	    <?php
+		$servername = "localhost";
+		$username = "root";
+		$password = "";
+		$dbname = "mydatabase";
 
+		// Create connection
+		$conn = new mysqli($servername, $username, $password, $dbname);
+		// Check connection
+		if ($conn->connect_error)
+		  die("Connection failed: " . $conn->connect_error);
 
+		$sql = "select * from mydatabase.employee";
+		$result = mysqli_query($conn, $sql);
+
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo "id: " . $row["emp_id"]. " - Name: " . $row["emp_name"]. ", " . $row["emp_dept"]. "<br>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+		?>
+        </div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q4</h2>
+
+	    <pre>
+		INSERT INTO Employee (emp_id, emp_name, emp_dept, emp_address) VALUES
+		('101', 'Rick Lee', 'D001', 'Singapore'),
+		('123', 'Maggie Wong', 'D002', 'Hong Kong'),
+		('166', 'Glenn Lee', 'D003', 'Japan'),
+		('133', 'Mary Ray', 'D002', 'Hong Kong');
+	    </pre>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q5</h2>
+
+	    <pre>
+		SELECT emp_name, emp_dept FROM mydatabase.employee WHERE emp_dept='D002'
+	    </pre>
+	    <?php
+		$sql = "SELECT emp_name, emp_dept FROM mydatabase.employee WHERE emp_dept='D002'";
+		$result = mysqli_query($conn, $sql);
+
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["emp_name"]. ", " . $row["emp_dept"]. "<br>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+		?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q6</h2>
+
+	    <pre>
+		SELECT emp_name, emp_address FROM mydatabase.employee WHERE emp_address = 'Hong Kong';
+	    </pre>
+	    <?php
+		$sql = "select emp_name, emp_address from mydatabase.employee where emp_address = 'Hong Kong'";
+		$result = mysqli_query($conn, $sql);
+
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["emp_name"]. ", " . $row["emp_address"]. "<br>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+		?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q7</h2>
+
+	    <pre>
+		SELECT COUNT(emp_name) FROM mydatabase.employee
+	    </pre>
+	    <?php
+		$sql = 'SELECT COUNT(emp_name) FROM mydatabase.employee';
+		$result = mysqli_query($conn, $sql);
+		$data=mysqli_fetch_assoc($result);
+		echo $data['COUNT(emp_name)'];
+		?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q8</h2>
+
+	    <pre>
+		SELECT COUNT(*) FROM mydatabase.employee WHERE emp_dept='D002' OR emp_dept='D001';
+	    </pre>
+		<?php
+		$sql = "SELECT COUNT(*) FROM mydatabase.employee WHERE emp_dept='D002' OR emp_dept='D001'";
+		$result = mysqli_query($conn, $sql);
+		$data=mysqli_fetch_assoc($result);
+		echo $data['COUNT(*)'];
+		?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q9</h2>
+
+	    <pre>
+		SELECT * FROM mydatabase.employee WHERE NOT emp_dept='D002' 
+	    </pre>
+		<?php
+		$sql = "SELECT * FROM mydatabase.employee WHERE NOT emp_dept='D002'"; 
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["emp_name"]. ", " . $row["emp_dept"]. "<br>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+		?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q10</h2>
+
+	    <pre>
+		SELECT empt_dept FROM mydatabase.employee 
+	    </pre>
+		<?php
+		$sql = "SELECT emp_dept FROM mydatabase.employee";
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["emp_dept"], " ";
+		  }
+		} else {
+		  echo "0 results";
+		}
+		?>
+	</div>
 
     </body>
 </html>
