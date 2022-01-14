@@ -1130,10 +1130,10 @@ and open the template in the editor.
             <h2 class="question-alt">Q10</h2>
 
 	    <pre>
-		SELECT empt_dept FROM mydatabase.employee 
+		SELECT DISTINCT empt_dept FROM mydatabase.employee 
 	    </pre>
 		<?php
-		$sql = "SELECT emp_dept FROM mydatabase.employee";
+		$sql = "SELECT DISTINCT emp_dept FROM mydatabase.employee";
 		$result = mysqli_query($conn, $sql);
 		if (mysqli_num_rows($result) > 0) {
 		  // output data of each row
@@ -1146,5 +1146,99 @@ and open the template in the editor.
 		?>
 	</div>
 
-    </body>
+        <div class="box box2">
+            <h2 class="question-alt">Q11</h2>
+
+	    <pre>
+		CREATE TABLE Enrolled (
+		emp_id MEDIUMINT UNSIGNED NOT NULL,
+		course_id MEDIUMINT UNSIGNED NOT NULL,
+		start_date VARCHAR(15) NOT NULL,
+		FOREIGN KEY (emp_id) REFERENCES employee (emp_id)
+		);
+	    </pre>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q12</h2>
+
+	    <pre>
+		INSERT INTO Enrolled (emp_id, course_id, start_date) VALUES
+		('101', '1000', 'July 2020'),
+		('101', '1001', 'Sept 2020'),
+		('123', '1000', 'July 2020'),
+		('166', '1000', 'July 2020'),
+		('166', '1001', 'Sept 2020');
+	    </pre>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q13</h2>
+
+	    <pre>
+		SELECT emp_name, course_id, start_date FROM mydatabase.employee, mydatabase.enrolled 
+		WHERE Employee.emp_id = Enrolled.emp_id 
+		AND Enrolled.course_id=1000;
+	    </pre>
+	    <?php
+		$sql = "SELECT emp_name, course_id, start_date FROM mydatabase.employee, mydatabase.enrolled WHERE Employee.emp_id = Enrolled.emp_id AND Enrolled.course_id=1000";
+
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["emp_name"], ", ", $row["course_id"], ", ", $row["start_date"], "<br/>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+		?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q14</h2>
+
+	    <pre>
+		SELECT emp_name 
+		FROM employee WHERE emp_id 
+		NOT IN (SELECT emp_id FROM enrolled)
+	    </pre>
+	    <?php
+		$sql = "SELECT emp_name " .
+			"FROM employee WHERE emp_id " .
+			"NOT IN (SELECT emp_id FROM enrolled) ";
+
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["emp_name"] . "<br/>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+		?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q15</h2>
+
+	    <pre>
+		SELECT DIST course_id FROM employee, enrolled WHERE emp_dept = 'D002'
+	    </pre>
+	    <?php
+		$sql = "SELECT DISTINCT course_id FROM employee, enrolled WHERE emp_dept = 'D002'";
+
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["course_id"] . "<br/>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+		?>
+	</div>
+   </body>
 </html>
