@@ -1240,5 +1240,173 @@ and open the template in the editor.
 		}
 		?>
 	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q16</h2>
+
+	    <pre>
+		ALTER TABLE employee
+		ADD Email varchar(50); 
+	    </pre>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q17</h2>
+
+	    <pre>
+		UPDATE `employee` SET `Email` = 'ricktan@sp.edu.sg' WHERE `employee`.`emp_id` = 101 
+		UPDATE `employee` SET `Email` = 'maggiewong@sp.edu.sg' WHERE `employee`.`emp_id` = 123 
+	    </pre>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q18</h2>
+
+	    <pre>
+		CREATE TABLE Product (
+		product_id MEDIUMINT UNSIGNED NOT NULL,
+		product_name VARCHAR(15) NOT NULL,
+		product_quantity MEDIUMINT UNSIGNED NOT NULL,
+		PRIMARY KEY (product_id)
+		);
+	    </pre>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q19</h2>
+
+	    <pre>
+		INSERT INTO Product (product_id, product_name, product_quantity) VALUES
+		('10', 'Table', '95'),
+		('20', 'Chair', '120'),
+		('30', 'Lamp', '30'),
+		('40', 'Cupboard', '50');
+	    </pre>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q20</h2>
+
+	    <pre>
+		SELECT * FROM `product` WHERE `product_quantity` < 60 
+	    </pre>
+	    <?php 
+		$sql = "SELECT * FROM `product` WHERE `product_quantity` < 60";
+
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["product_name"] . "<br/>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+	    ?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q21</h2>
+
+	    <pre>
+		SELECT * FROM `product` WHERE `product_quantity` BETWEEN 50 AND 100 
+	    </pre>
+	    <?php 
+		$sql = "SELECT * FROM `product` WHERE `product_quantity` BETWEEN 50 AND 100";
+
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["product_name"] . "<br/>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+	    ?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q22</h2>
+
+	    <pre>
+		SELECT MAX(product_quantity) as max_items
+		FROM product;
+	    </pre>
+	    <?php 
+		$sql = "SELECT MAX(product_quantity) as max_items " .
+		"FROM product";
+
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["max_items"] . "<br/>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+	    ?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q23</h2>
+
+	    <pre>
+		SELECT MIN(product_quantity) as max_items
+		FROM product;
+	    </pre>
+	    <?php 
+		$sql = "SELECT MIN(product_quantity) as max_items " .
+		"FROM product";
+
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["max_items"] . "<br/>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+	    ?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q24</h2>
+
+	    <pre>
+		SELECT * FROM product WHERE product_quantity > (SELECT AVG(product_quantity) FROM product) 
+	    </pre>
+	    <?php 
+		$sql = "SELECT * FROM product WHERE product_quantity > (SELECT AVG(product_quantity) FROM product)";
+
+		$result = mysqli_query($conn, $sql);
+		if (mysqli_num_rows($result) > 0) {
+		  // output data of each row
+		  while($row = mysqli_fetch_assoc($result)) {
+		    echo $row["product_name"] . "<br/>";
+		  }
+		} else {
+		  echo "0 results";
+		}
+	    ?>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q25</h2>
+
+	    <pre>
+		UPDATE `product` SET `product_quantity` = '70' WHERE `product`.`product_id` = 40 
+	    </pre>
+	</div>
+
+        <div class="box box2">
+            <h2 class="question-alt">Q26</h2>
+
+	    <pre>
+		DELETE FROM `product` WHERE `product`.`product_id` = 30
+	    </pre>
+	</div>
    </body>
 </html>
